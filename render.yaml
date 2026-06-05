@@ -1,0 +1,42 @@
+services:
+  - type: web
+    name: creatortrack-api
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm ci && npm run typecheck
+    startCommand: npm start
+    healthCheckPath: /health
+    disk:
+      name: creatortrack-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: 22.13.1
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: DATABASE_PATH
+        value: /var/data/creator-pipeline.sqlite
+      - key: EXPORT_DIR
+        value: /var/data/exports
+      - key: APP_BASE_URL
+        sync: false
+      - key: YOUTUBE_API_KEY
+        sync: false
+      - key: MINIMAX_API_KEY
+        sync: false
+      - key: YOUTUBE_DAILY_QUOTA_LIMIT
+        value: 10000
+      - key: DEFAULT_SUB_MIN
+        value: 3000
+      - key: DEFAULT_SUB_MAX
+        value: 50000
+      - key: DEFAULT_MAX_CANDIDATES
+        value: 200
+      - key: DEFAULT_LOOKBACK_DAYS
+        value: 30
+      - key: PLAYWRIGHT_HEADLESS
+        value: "true"
