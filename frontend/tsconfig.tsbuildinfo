@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/types.ts","./src/components/filterpanel.tsx","./src/constants/countries.ts","./src/constants/languages.ts","./src/constants/regions.ts","./src/lib/api.ts","./src/utils/filter.ts","./src/utils/normalize.ts"],"version":"5.9.3"}
